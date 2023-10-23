@@ -17,11 +17,23 @@ app.listen(3000, (error) => {
 
 app.use(express.static('styles'));
 
+app.use(express.urlencoded({ extended: false}));
+
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
 app.get('/', (req, res) => {
     res.render(createPath('home'));
 });
+
+app.post('/add-post', (req, res) => {
+    const { author, title, text } = req.body;
+    const post = {
+        author,
+        title,
+        text,
+    };
+    res.render(createPath('post'), { post });
+});  
 
 app.get('/contacts', (req, res) => {
     const contacts = [
@@ -37,11 +49,27 @@ app.get('/eblans', (req, res) => {
 });
 
 app.get('/posts', (req, res) => {
-    res.render(createPath('posts'));
+    const posts = [
+        {
+            id: '1',
+            text: 'что-то написано хз',
+            title: 'Загъаловок',
+            date: '05.05.2021',
+            author: 'Oleges',
+        }
+    ];
+    res.render(createPath('posts'), { posts });
 });
 
 app.get('/posts/:id', (req, res) => {
-    res.sendFrenderile(createPath('home'));
+    const post = {
+        id: '1',
+        text: 'что-то написано хз',
+        title: 'Загъаловок',
+        date: '05.05.2021',
+        author: 'Oleges',
+    };
+    res.render(createPath('post'), { post });
 });
 
 app.get('/add-post', (req, res) => {

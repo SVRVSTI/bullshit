@@ -10,6 +10,14 @@
             <%- include('./partials/nav.ejs') %>
 
         </header> 
+        <article>
+            <div class="info">
+              <span><%= post.date || 'No date' %></span>
+              <span><%= post.author %></span>
+            </div>
+            <h1><%= post.title %></h1>
+            <p><%= post.text %></p>
+          </article>
     </div>
 </body>
 </html>

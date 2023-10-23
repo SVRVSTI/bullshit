@@ -9,8 +9,25 @@
             </h1>
             <%- include('./partials/nav.ejs') %>
         </header> 
-        
-        <p>Предлагаю тебе пойти нахуй =></p>
+        <h1>Posts:</h1>
+  <ul>
+    <% if (posts.length) { %>
+      <% posts.forEach(({ id, title, date, text, author }) => { %>
+        <li>
+          <article>
+            <h2>
+              <a href="/posts/<%= id %>"><%= title %></a>
+            </h2>
+            <p><%= text %></p>
+            <div class="info">
+              <span><%= date %></span>
+              <span><%= author %></span>
+            </div>
+          </article>
+        </li>
+      <% }) %>
+    <% } %>
+  </ul>
     </div>
 </body>
 </html>
