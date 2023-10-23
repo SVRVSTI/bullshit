@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <div class="container1">
+            <header>
+                <h1 class="maintitle">
+                    <a href="/">ABIN LOCKWOUD</a>
+                </h1>
+                <%- include('./partials/nav.ejs') %>
+
+            </header> 
+        <ul>
+            <% if (contacts.length) { %>
+                <% contacts.forEach(({ link, name }) => { %>
+                    <li>
+                        <a href="<%= link %>"><%= name %></a>
+                    </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+

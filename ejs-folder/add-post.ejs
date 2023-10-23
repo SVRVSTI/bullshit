@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <div class="container1">
+        <header>
+            <h1 class="maintitle">
+                <a href="/">ABIN LOCKWOUD</a>
+            </h1>
+            <%- include('./partials/nav.ejs') %>
+        </header> 
+        <form id="post-form" method="post" action="/add-post">
+            <div class="form-info">
+              <label>Post Title
+                <input type="text" name="title">
+              </label>
+              <label>Author
+                <input type="text" name="author">
+              </label>
+            </div>
+            <div class="form-text">
+              <label>Post Text
+                <textarea name="text"></textarea>
+              </label>
+            </div>
+            <div class="form-button">
+              <input type="submit" value="Submit">
+            </div>
+          </form>
+    </div>
+</body>
+</html>
